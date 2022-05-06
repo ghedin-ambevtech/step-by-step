@@ -24,19 +24,31 @@ git push
 """
 Podemos fazer na mão usando yield (É um return, mas diferente, fica aí a pesquisa :P)
 """
-def cumsum(lis):
-    def acumu(lis):
-        total = 0
-        for x in lis:
-            total += x
-            yield total
+def cumsum(*args):
+    t = []
+    soma = 0
+    for item in args:
+        soma += item
+        t.append(soma)
+    return t
 
-    return list(acumu(lis))
+print(cumsum(1, 5, 6, 15, 23, 2))
 
 
-resultado = cumsum([1, 2, 3])
-
-print(resultado)
+# resolução Doug
+# def cumsum(lis):
+#     def acumu(lis):
+#         total = 0
+#         for x in lis:
+#             total += x
+#             yield total
+#
+#     return list(acumu(lis))
+#
+#
+# resultado = cumsum([1, 2, 3])
+#
+# print(resultado)
 
 # With NumPy
 """
