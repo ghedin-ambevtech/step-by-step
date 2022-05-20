@@ -13,7 +13,7 @@ customers = []
 
 def validate_customers() -> NoReturn:
     if len(customers) == 0:
-        print("Nenhum customer cadastrado!")
+        print("Nenhum cliente cadastrado!")
 
 
 def list_customers() -> NoReturn:
@@ -43,7 +43,7 @@ def update_customer() -> NoReturn:
     updated = None
     for customer in customers:
         if id_customer == customer.get('Id'):
-            name = input(f"Você quer alterar o name de {customer.get('Nome')} para qual nome ? ").strip()
+            name = input(f"Você quer alterar o nome de {customer.get('Nome')} para qual nome ? ").strip()
             customer['Name'] = name.title()
             print(f"Cliente {id_customer} alterado com sucesso!")
             updated = True
