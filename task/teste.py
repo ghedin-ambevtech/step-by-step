@@ -16,33 +16,48 @@ import sys
 #
 
 
+# def compareTriplets(a, b):
+#     points = []
+#     alice = 0
+#     bob = 0
+#     for n in range(2):
+#         if a[n] > b[n]:
+#             alice += 1
+#         elif a[n] < b[n]:
+#             bob += 1
+#     points[0] = alice
+#     points[1] = bob
+#     return points
+#
+# if __name__ == '__main__':
+#     fptr = open(os.environ['OUTPUT_PATH'], 'w')
+#
+#     a = list(map(int, input().rstrip().split()))
+#
+#     b = list(map(int, input().rstrip().split()))
+#     print(a)
+#     print(b)
+#     result = compareTriplets(a, b)
+#
+#     fptr.write(' '.join(map(str, result)))
+#     fptr.write('\n')
+#
+#     fptr.close()
+
+from pydantic import BaseModel
 
 
+class Customer(BaseModel):
+    id: str
 
-def compareTriplets(a, b):
-    points = []
-    alice = 0
-    bob = 0
-    for n in range(2):
-        if a[n] > b[n]:
-            alice += 1
-        elif a[n] < b[n]:
-            bob += 1
-    points[0] = alice
-    points[1] = bob
-    return points
+    def dict(self, *args, **kwargs):
+        print('A classe Customer')
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    a = list(map(int, input().rstrip().split()))
+customer = Customer(**{"id": "123", "nome": "teste customer"})
+customer.dict()
 
-    b = list(map(int, input().rstrip().split()))
-    print(a)
-    print(b)
-    result = compareTriplets(a, b)
+json_cliente = {"id": "456", "nome": "teste cliente"}
 
-    fptr.write(' '.join(map(str, result)))
-    fptr.write('\n')
-
-    fptr.close()
+cliente = Customer(**json_cliente)
+customer.dict()
